@@ -1,4 +1,3 @@
-Claro, puedo ayudarte a organizar ese archivo Markdown. Aquí está el contenido organizado:
 
 # Sapphire Inventory
 
