@@ -28,7 +28,7 @@ usar la consola **_command prompt_**
 6. verificar que se instalaron correctamente
 ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/450706fb-85df-4cbf-9dce-523a93181aeb)
 
-7. Correr la aplicación
+7. Correr la aplicación:
 ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/029d6da7-2206-4b1c-b57c-22fb7e536aed)
 **abrir este enlace:** http://127.0.0.1:5000
 
