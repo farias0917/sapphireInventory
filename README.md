@@ -15,7 +15,7 @@ Claro, puedo ayudarte a organizar ese archivo Markdown. Aquí está el contenido
    ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/01bfd951-1e28-474b-8bd0-4c45ec3b2d69)
 
 3. **Verificar la instalación de Python y Pip:**
-   - Asegúrate de que Python y Pip estén instalados.
+   - Asegúrarse de que Python y Pip estén instalados.
 
    ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/c30372dd-136b-4b59-8d9f-7ac51c65041d)
 
@@ -43,7 +43,6 @@ Claro, puedo ayudarte a organizar ese archivo Markdown. Aquí está el contenido
 
 **Abre este enlace:** [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-Espero que esto te ayude a ejecutar el proyecto sin problemas. Si tienes alguna pregunta adicional, no dudes en preguntar.
 
 
 
