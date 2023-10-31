@@ -3,15 +3,15 @@
 
 1.Crear la base de datos que se encuentra en la carpeta **db**
 
-2. abrir el proyecto en vsc y la tambien la consola
+2. abrir el proyecto en vsc y la tambien la consola  
 
-![image](https://github.com/farias0917/sapphireinventory/assets/128154875/18de5841-525e-46cb-ac8d-87b67144b86d)
+  ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/18de5841-525e-46cb-ac8d-87b67144b86d)
 
 usar la consola **_command prompt_**
-![image](https://github.com/farias0917/sapphireinventory/assets/128154875/01bfd951-1e28-474b-8bd0-4c45ec3b2d69)
+  ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/01bfd951-1e28-474b-8bd0-4c45ec3b2d69)
 
 3. verificar que tenga instalado python y pip 
-![image](https://github.com/farias0917/sapphireinventory/assets/128154875/c30372dd-136b-4b59-8d9f-7ac51c65041d)
+  ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/c30372dd-136b-4b59-8d9f-7ac51c65041d)
 
 4. crear el entorno virtual
 ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/597a536d-b405-4094-bbee-66e645a419e8)
