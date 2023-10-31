@@ -15,6 +15,8 @@ usar la consola **_command prompt_**
 
 4. crear el entorno virtual
 ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/597a536d-b405-4094-bbee-66e645a419e8)
+
+
 ![image](https://github.com/farias0917/sapphireinventory/assets/128154875/4a564929-e5c1-4405-b3e0-536daec21ede)
 
 4.Activar el entrono virtual
