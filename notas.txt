@@ -1,0 +1,10 @@
+1.wireframes (Mockups) PDF
+2.diagrama de casos de uso
+3.Diagrama de secuencia
+4.Clases
+5.Diagrama de base de datos
+6.Script(Bd y app)
+
+//Sustentación proyecto
+-Login
+-

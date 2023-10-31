@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://kit.fontawesome.com/861b3604ef.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <a href="{{url_for('main')}}">App</a>
+        <div class="menuHeader">
+            <p>{{session["name"]}} {{session["lastName"]}}</p>
+            <div class="headerImgContainer">
+                {% if users[5] == None %}
+                <img src="../static/img/noimage.webp" alt="" width="100" id="imgPerfil">
+                {% else %}
+                <img src="/mostrarImg/{{users[5]}}" alt="" width="100" id="imgPerfil">
+                {% endif %}
+            </div>
+            <div class="options" id="options">
+                <a href="{{url_for('usersPerfil')}}">perfil <i class="fa-solid fa-pen-nib"></i></a>
+                <a href="{{url_for('logOut')}}">Salir <i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </div>
+    </header>
+    <div class="navMenuContainer navMenuContainerHidde" id="navMenuContainer">
+        <div class="navMenuContainer_Perfil">
+            <div class="navMenuContainer_Perfil-img">
+                {% if users[5] == None %}
+                <img src="../static/img/noimage.webp" alt="" width="100" id="imgPerfil">
+                {% else %}
+                <img src="/mostrarImg/{{users[5]}}" alt="" width="100" id="imgPerfil">
+                {% endif %}
+            </div> 
+            <h2>{{session["name"]}} {{session["lastName"]}}</h2>
+        </div>
+        <nav>
+            <a href="{{url_for('main')}}"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="{{url_for('products')}}"><i class="fa-solid fa-box-archive"></i> Productos</a>
+            <a href="#"><i class="fa-solid fa-boxes-stacked"></i> Categorias</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> Entradas</a>
+            <a href="#"><i class="fa-solid fa-dollar-sign"></i> Salidas</a>
+        </nav>
+        <i class="fa-solid fa-bars bntMenu" id="bntMenu"></i>
+    </div>
+
+    <div class="uptadeProductContainer">
+        <h2>Actualizar producto</h2>
+
+            <form action="/updateProduct/{{products[0]}}" method="post">
+                <label for="marca">Marca del producto:</label>
+                    <input type="text" name="updateMarca" id="marca" value="{{products[1]}}">
+
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="updateNombreProducto" id="nombre" value="{{products[2]}}">
+
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" name="updateDescripcion" id="descripcion" value="{{products[3]}}">
+
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="text" name="updateCantidad" id="cantidad" value="{{products[4]}}">
+
+                    <div class="btnUpdateContainer">
+                        <button type="submit">Actualizar producto</button>
+                    </div>
+            </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/productModal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

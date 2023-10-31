@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://kit.fontawesome.com/861b3604ef.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <a href="{{url_for('main')}}">App</a>
+        <div class="menuHeader">
+            <p>{{session["name"]}} {{session["lastName"]}}</p>
+            <div class="headerImgContainer">
+                {% if users[5] == None %}
+                <img src="../static/img/noimage.webp" alt="" width="100" id="imgPerfil">
+                {% else %}
+                <img src="/mostrarImg/{{users[5]}}" alt="" width="100" id="imgPerfil">
+                {% endif %}
+            </div>
+            <div class="options" id="options">
+                <a href="{{url_for('usersPerfil')}}">perfil <i class="fa-solid fa-pen-nib"></i></a>
+                <a href="{{url_for('logOut')}}">Salir <i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </div>
+    </header>
+    <div class="navMenuContainer navMenuContainerHidde" id="navMenuContainer">
+        <div class="navMenuContainer_Perfil">
+            <div class="navMenuContainer_Perfil-img">
+                {% if users[5] == None %}
+                <img src="../static/img/noimage.webp" alt="" width="100" id="imgPerfil">
+                {% else %}
+                <img src="/mostrarImg/{{users[5]}}" alt="" width="100" id="imgPerfil">
+                {% endif %}
+            </div> 
+            <h2>{{session["name"]}} {{session["lastName"]}}</h2>
+        </div>
+        <nav>
+            <a href="{{url_for('main')}}"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="{{url_for('products')}}"><i class="fa-solid fa-box-archive"></i> Productos</a>
+            <a href="#"><i class="fa-solid fa-boxes-stacked"></i> Categorias</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> Entradas</a>
+            <a href="#"><i class="fa-solid fa-dollar-sign"></i> Salidas</a>
+        </nav>
+        <i class="fa-solid fa-bars bntMenu" id="bntMenu"></i>
+    </div>
+
+    <main class="main">
+        <div class="main-header">
+            <button id="btnProductModal"><i class="fa-solid fa-plus"></i> Agregar producto</button>
+            <h2>Productos</h2>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                     <th>Id</th>
+                     <th>Marca</th>
+                     <th>Nombre</th>
+                     <th>Descripción</th>
+                     <th>Cantidad</th>
+                     <th>Estado</th>
+                     <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if products %} 
+                {% for product in products  %}    
+                <tr>
+                    <td>{{product[0]}}</td>
+                    <td>{{product[1]}}</td>
+                    <td>{{product[2]}}</td>
+                    <td>{{product[3]}}</td>
+                    <td>{{product[4]}}</td>
+                    <td>{{product[5]}}</td>
+                    <td>
+                        <form action="/deleteProduct" method="post">
+                            <input type="hidden" value="{{product[0]}}" name="productId">
+                            <button type="submit" class="delete"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a href="/updateProduct/{{product[0]}}" class="update"><i class="fa-solid fa-pen-to-square"></i> Actualizar</a>
+                    </td>
+                    
+                </tr> 
+                {% endfor %}     
+
+                {% else %}
+                <p>No se han registrado productos</p>
+                {% endif %}  
+            </tbody>
+        </table>
+    </main>
+
+    <!--register products modal-->
+
+    <div class="productModal" id="productModal">
+        <div class="productModalContent">
+            <i class="fa-solid fa-xmark" id="close"></i>
+            <h2>Agregar producto</h2>
+
+            <form action="/addProduct" method="post">
+                <label for="marca">Marca del producto:</label>
+                    <input type="text" name="marca" id="marca" placeholder="Ingresa la marca del producto">
+
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombreProducto" id="nombre" placeholder="Ingresa el nombre del producto">
+
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" name="descripcion" id="descripcion" placeholder="Ingresa una descripción">
+
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="text" name="cantidad" id="cantidad" placeholder="Ingresa la cantidad del producto">
+
+                    <div class="btnContainer">
+                        <button type="submit">Agregar producto</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/productModal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

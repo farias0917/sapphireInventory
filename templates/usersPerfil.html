@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{session["name"]}} {{session["lastName"]}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/usersPerfil.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://kit.fontawesome.com/861b3604ef.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <a href="{{url_for('index')}}">App</a>
+        <div class="menuHeader">
+            <p>{{session["name"]}} {{session["lastName"]}}</p>
+            <div class="headerImgContainer">
+                {% if users[5] == None %}
+                <img src="../static/img/noimage.webp" alt="" width="100" id="imgPerfil">
+                {% else %}
+                <img src="/mostrarImg/{{users[5]}}" alt="" width="100" id="imgPerfil">
+                {% endif %}
+            </div>
+            <div class="options" id="options">
+                 <a href="{{url_for('usersPerfil')}}">perfil <i class="fa-solid fa-pen-nib"></i></a>
+                 <a href="{{url_for('logOut')}}">Salir <i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </div>
+    </header>
+    <div class="navMenuContainer navMenuContainerHidde" id="navMenuContainer">
+        <div class="navMenuContainer_Perfil">
+            <div class="navMenuContainer_Perfil-img">
+                {% if users[5] == None %}
+                <img src="../static/img/noimage.webp" alt="" width="100">
+                {% else %}
+                <img src="/mostrarImg/{{users[5]}}" alt="" width="100">
+                {% endif %}
+            </div> 
+            <h2>{{session["name"]}} {{session["lastName"]}}</h2>
+        </div>
+        <nav>
+            <a href="{{url_for('main')}}"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="{{url_for('products')}}"><i class="fa-solid fa-box-archive"></i> Productos</a>
+            <a href="#"><i class="fa-solid fa-boxes-stacked"></i> Categorias</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> Entradas</a>
+            <a href="#"><i class="fa-solid fa-dollar-sign"></i> Salidas</a>
+        </nav>
+        <i class="fa-solid fa-bars bntMenu" id="bntMenu"></i>
+    </div>
+
+    <div class="perfilContainer">
+        <div class="imgPerfil">
+            {% if users[5] == None %}
+            <img src="../static/img/noimage.webp" alt="" width="100">
+            {% else %}
+            <img src="/mostrarImg/{{users[5]}}" alt="" width="100">
+            {% endif %}
+        </div>
+        <h2>{{session["name"]}} {{session["lastName"]}}</h2>
+        <a href="#" id="BtnModalPerfil">Editar perfil</a>
+    </div>
+
+    <div class="modalPerfil" id="modalPerfil">
+        <div class="perfilModalContent">
+            <i class="fa-solid fa-x closeModal" id="closeModal"></i>
+            <h1>Editar tu perfil</h1>
+            <div class="imgPerfil">
+                {% if users[5] == None %}
+                <img src="../static/img/noimage.webp" alt="" width="100">
+                {% else %}
+                <img src="/mostrarImg/{{users[5]}}" alt="" width="100">
+                {% endif %} 
+            </div>
+            <form action="/insertarImg/{{users[0]}}" method="post" enctype="multipart/form-data">
+                <input type="file" name="img" id="">
+                <button type="submit">
+                    Guardar cambios
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/userModal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</body>
+</html>
